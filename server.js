@@ -14,7 +14,12 @@ MongoClient.connect('mongodb+srv://root:042602@cluster0.eatnaco.mongodb.net/?ret
 })
 
 
-
+app.get('/join', function(req, res){
+    res.sendFile(__dirname + "/join.html");
+})
+app.get('/manage', function(req, res){
+    res.sendFile(__dirname + "/join.html");
+})
 app.get('/', function(req, res){
     res.sendFile(__dirname + "/index.html");
 })

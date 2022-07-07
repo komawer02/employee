@@ -1,12 +1,18 @@
 const express = require('express');
 const app = express();
 const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({extended:true}));
 
-MongoClient.connect('mongodb+srv://root:ASDun0304@cluster0.eatnaco.mongodb.net/?retryWrites=true&w=majority', function(err, client){
+MongoClient.connect('mongodb+srv://root:042602@cluster0.eatnaco.mongodb.net/?retryWrites=true&w=majority', function(err, client){
     db = client.db('todoapp');
-    db.collection('post').insertOne({key:'저장할데이터'}, function(err, result){
-
+    app.post('/access', function(req,res){
+        res.send('저장완료');
+        db.collection('post').insertOne({name:req.body.name, date:req.body.date}, function(err, result){
+            
+        })
     })
+
 
 
 
@@ -22,3 +28,4 @@ MongoClient.connect('mongodb+srv://root:ASDun0304@cluster0.eatnaco.mongodb.net/?
 app.get('/', function(req,res){
     res.sendFile(__dirname +'/index.html');
 });
+

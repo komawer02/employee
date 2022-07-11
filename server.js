@@ -26,7 +26,7 @@ app.get('/manage', function(req, res){
     res.sendFile(__dirname + "/join.html");
 })
 app.get('/', function(req, res){
-    res.sendFile(__dirname + "/test.html");
+    res.sendFile(__dirname + "/index.html");
     navigator.geolocation.getCurrentPosition((success, error) => {
         if (error) console.error(error);
         else console.log(success.latitude, success.longitude);

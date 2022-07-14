@@ -33,11 +33,11 @@ app.get('/', function(req, res){
         if(calcDistance(success.latitude, success.longitude) < 1000){
             console.log('안에있음');
         }
-        else    console.log(calcDistance(success.latitude, success.longitude));
+        else    console.log(calcDistance(success.latitude, success.longitude,37.03449586752981,127.05197172911399));
     });
 })
 
-function calcDistance(lat1, lon1, lat2 = 37.03449586752981, lon2 =  127.05197172911399){
+function calcDistance(lat1, lon1, lat2, lon2){
     var theta = lon1 - lon2;
     dist = Math.sin(deg2rad(lat1))*Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1))*Math.cos(deg2rad(lat2))*Math.cos(deg2rad(theta));
     dist = Math.acos(dist);

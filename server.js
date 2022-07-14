@@ -4,7 +4,7 @@ const MongoClient = require('mongodb').MongoClient
 
 const { Navigator } = require("node-navigator");
 const navigator = new Navigator();
-
+const port = process.env.PORT;
 
 
 MongoClient.connect('mongodb+srv://root:042602@cluster0.eatnaco.mongodb.net/?retryWrites=true&w=majority', function(err, client){
@@ -12,7 +12,7 @@ MongoClient.connect('mongodb+srv://root:042602@cluster0.eatnaco.mongodb.net/?ret
     if(err) return console.log(err);
     db = client.db('todoapp');
     
-    app.listen(8080, function(req, res){    
+    app.listen(port, function(req, res){    
         console.log('listening on 8080');
     
     });

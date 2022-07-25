@@ -13,7 +13,7 @@ MongoClient.connect('mongodb+srv://root:042602@cluster0.eatnaco.mongodb.net/?ret
     db = client.db('todoapp');
     
     app.listen(port, function(req, res){    
-        console.log('listening on 8080');
+        console.log('listening on ' + port);
     
     });
 })
